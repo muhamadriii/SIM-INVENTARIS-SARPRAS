@@ -30,10 +30,14 @@ class UserDataTable extends DataTable
     {
         return datatables()
             ->eloquent($query)
-            ->addColumn('image', function($query) { return '<img src="'. asset('storage/images'). '/'. $query->image .'" class="img-fluid rounded image-modal" />';})
+            ->addColumn('image', function($query) { return '
+                <div class="" style="width:50px; max-height:50px; cursor:pointer;">
+                    <img src="'. asset('storage/images/user'). '/'. $query->image .'" class="img-fluid rounded image-modal" /> 
+                </div>
+                ';})
             ->addColumn('action', "pages.".$this->path.".".$this->view.'.action')
             ->editColumn('created_at', Carbon::parse($this->created_at)->format('Y-m-d H:i'))
-            ->rawColumns(['image', 'action']);
+            ->rawColumns(['image','action']);
     }
 
     /**

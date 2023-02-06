@@ -68,7 +68,7 @@
                                 message: response.message
                             })
                             $('.dataTable').DataTable().ajax.reload()
-                         })
+                        })
                     }
                 })
             })
@@ -89,6 +89,7 @@
 
             function setForm(data) {
                 $('input[name=name]').val(data.name)
+                $('input[name=route]').val(data.route)
                 $('select[name=parent_id]').val(data.parent_id).change()
                 $('select[name=permission_id]').val(data.permission_id).change()
             }

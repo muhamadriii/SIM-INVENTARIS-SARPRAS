@@ -30,8 +30,8 @@ class MenuServiceProvider extends ServiceProvider
                 $menus = Menu::query()
                     ->with('childrens','permission', 'childrens.permission')
                     ->whereNull('parent_id')
+                    ->orderBy('name',"ASC")
                     ->get();
-                    // dd($menus);
                 $view->with([
                     'menus' => $menus
                 ]);

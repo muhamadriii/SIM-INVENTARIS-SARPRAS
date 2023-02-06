@@ -31,6 +31,11 @@
                     </div>
 
                     <div class="mb-10 fv-row">
+                        <label for="route" class="required form-label">Route</label>
+                        <input type="text" class="form-control form-control-solid" name="route" placeholder="route" required/>
+                    </div>
+
+                    <div class="mb-10 fv-row">
                         <label for="permission" class="form-label">Permission</label>
                         <select name="permission_id" class="form-control form-control-solid form-select mb-2" >
                             @foreach ($permissions as $permission)

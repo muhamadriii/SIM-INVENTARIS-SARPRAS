@@ -14,9 +14,23 @@ class ParentItem extends Model
     protected $fillable = [
         'unit_id',
         'category_id',
-        'name',
         'image',
+        'name',
         'suplier',
-        'harga',
+        'stock',
+        'price',
+        'description',
     ];
+
+    
+    public function category()
+    {
+        return $this->belongsTo(Category::class, 'category_id', 'id');
+    }
+
+    public function unit()
+    {
+        return $this->belongsTo(Unit::class, 'unit_id', 'id');
+    }
+
 }

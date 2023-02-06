@@ -239,7 +239,7 @@
                             @if (Auth::user()->image == null)
                                 <img src="{{ asset('assets2/images/blank.png') }}" alt="image" />
                             @else
-                                <img src="{{ asset('storage/images/' . Auth::user()->image) }}" alt="image" />
+                                <img src="{{ asset('storage/images/user/' . Auth::user()->image) }}" alt="image" />
                             @endif
                         </div>
                         <!--end::Symbol-->

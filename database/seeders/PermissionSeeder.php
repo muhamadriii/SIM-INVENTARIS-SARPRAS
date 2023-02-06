@@ -19,81 +19,37 @@ class PermissionSeeder extends Seeder
     {
         //Permissions
         $createPermissions = [
-            ['name'=>'merchant.list','guard_name'=>'web'],
-            ['name'=>'merchant.create','guard_name'=>'web'],
-            ['name'=>'merchant.update','guard_name'=>'web'],
-            ['name'=>'merchant.delete','guard_name'=>'web'],
-
-            ['name'=>'member.list','guard_name'=>'web'],
-            ['name'=>'member.create','guard_name'=>'web'],
-            ['name'=>'member.update','guard_name'=>'web'],
-            ['name'=>'member.delete','guard_name'=>'web'],
-
-            ['name'=>'product.list','guard_name'=>'web'],
-            ['name'=>'product.create','guard_name'=>'web'],
-            ['name'=>'product.update','guard_name'=>'web'],
-            ['name'=>'product.delete','guard_name'=>'web'],
 
             ['name'=>'categories.list','guard_name'=>'web'],
             ['name'=>'categories.create','guard_name'=>'web'],
             ['name'=>'categories.update','guard_name'=>'web'],
             ['name'=>'categories.delete','guard_name'=>'web'],
 
-            ['name'=>'order.list','guard_name'=>'web'],
-            ['name'=>'order.create','guard_name'=>'web'],
-            ['name'=>'order.update','guard_name'=>'web'],
-            ['name'=>'order.delete','guard_name'=>'web'],
-            ['name'=>'order.updateStatus','guard_name'=>'web'],
-
-            ['name'=>'gallery.list','guard_name'=>'web'],
-            ['name'=>'gallery.create','guard_name'=>'web'],
-            ['name'=>'gallery.update','guard_name'=>'web'],
-            ['name'=>'gallery.delete','guard_name'=>'web'],
-
             ['name'=>'unit.list','guard_name'=>'web'],
             ['name'=>'unit.create','guard_name'=>'web'],
             ['name'=>'unit.update','guard_name'=>'web'],
             ['name'=>'unit.delete','guard_name'=>'web'],
-
-            ['name'=>'level.list','guard_name'=>'web'],
-            ['name'=>'level.create','guard_name'=>'web'],
-            ['name'=>'level.update','guard_name'=>'web'],
-            ['name'=>'level.delete','guard_name'=>'web'],
-
-            ['name'=>'contact-us.list','guard_name'=>'web'],
-            ['name'=>'contact-us.create','guard_name'=>'web'],
-            ['name'=>'contact-us.update','guard_name'=>'web'],
-            ['name'=>'contact-us.delete','guard_name'=>'web'],
 
             ['name'=>'menu.list','guard_name'=>'web'],
             ['name'=>'menu.create','guard_name'=>'web'],
             ['name'=>'menu.update','guard_name'=>'web'],
             ['name'=>'menu.delete','guard_name'=>'web'],
 
-            ['name'=>'level.list','guard_name'=>'web'],
-            ['name'=>'level.create','guard_name'=>'web'],
-            ['name'=>'level.update','guard_name'=>'web'],
-            ['name'=>'level.delete','guard_name'=>'web'],
+            ['name'=>'item.list','guard_name'=>'web'],
+            ['name'=>'item.create','guard_name'=>'web'],
+            ['name'=>'item.update','guard_name'=>'web'],
+            ['name'=>'item.delete','guard_name'=>'web'],
+            ['name'=>'item.generate','guard_name'=>'web'],
+            
+            ['name'=>'loan.list','guard_name'=>'web'],
+            ['name'=>'loan.create','guard_name'=>'web'],
+            ['name'=>'loan.update','guard_name'=>'web'],
+            ['name'=>'loan.delete','guard_name'=>'web'],
 
-            ['name'=>'fee.list','guard_name'=>'web'],
-            ['name'=>'fee.create','guard_name'=>'web'],
-            ['name'=>'fee.update','guard_name'=>'web'],
-            ['name'=>'fee.delete','guard_name'=>'web'],
-
-            ['name'=>'invoice.list','guard_name'=>'web'],
-            ['name'=>'invoice.create','guard_name'=>'web'],
-            ['name'=>'invoice.update','guard_name'=>'web'],
-            ['name'=>'invoice.delete','guard_name'=>'web'],
-
-            ['name'=>'waiting-for-approval.list','guard_name'=>'web'],
-
-            ['name'=>'shipping.list','guard_name'=>'web'],
-
-            ['name'=>'unpaid.list','guard_name'=>'web'],
-
-            ['name'=>'paid.list','guard_name'=>'web'],
-
-            ['name'=>'finish.list','guard_name'=>'web'],
+            ['name'=>'request.list','guard_name'=>'web'],
+            ['name'=>'request.create','guard_name'=>'web'],
+            ['name'=>'request.update','guard_name'=>'web'],
+            ['name'=>'request.delete','guard_name'=>'web'],
         ];
 
         foreach($createPermissions as $permission){

@@ -37,6 +37,7 @@ class HomeController extends Controller
      */
     public function index(ListOrderDataTable $dataTable)
     {
+        return to_route('admin.users.index');
         $members = Member::get();
         $datas = [];
         foreach($members as $member) {

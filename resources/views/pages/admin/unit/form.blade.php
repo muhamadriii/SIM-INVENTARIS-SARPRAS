@@ -16,50 +16,14 @@
 
                 <div class="modal-body">
 
-                    {{-- <div class="fv-row mb-10">
-                        <!--begin::Label-->
-                        <label class="d-block fw-semibold fs-6 mb-5">Image Input</label>
-                        <!--end::Label-->
-
-                        <!--begin::Image input-->
-                        <div class="image-input image-input-outline image-input-empty" data-kt-image-input="true" style="background-image: url('assets/media/svg/avatars/blank.svg')">
-                            <!--begin::Preview existing avatar-->
-                            <div class="image-input-wrapper w-125px h-125px"></div>
-                            <!--end::Preview existing avatar-->
-
-                            <!--begin::Label-->
-                            <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" title="Change avatar">
-                                <i class="bi bi-pencil-fill fs-7"></i>
-
-                                <!--begin::Inputs-->
-                                <input type="file" name="avatar" accept=".png, .jpg, .jpeg" />
-                                <input type="hidden" name="avatar_remove" />
-                                <!--end::Inputs-->
-                            </label>
-                            <!--end::Label-->
-
-                            <!--begin::Cancel-->
-                            <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="cancel" data-bs-toggle="tooltip" title="Cancel avatar">
-                                <i class="bi bi-x fs-2"></i>
-                            </span>
-                            <!--end::Cancel-->
-
-                            <!--begin::Remove-->
-                            <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="remove" data-bs-toggle="tooltip" title="Remove avatar">
-                                <i class="bi bi-x fs-2"></i>
-                            </span>
-                            <!--end::Remove-->
-                        </div>
-                        <!--end::Image input-->
-
-                        <!--begin::Hint-->
-                        <div class="form-text">Allowed file types: png, jpg, jpeg.</div>
-                        <!--end::Hint-->
-                    </div> --}}
-
                     <div class="mb-10 fv-row">
                         <label for="name" class="required form-label">Name</label>
                         <input type="text" class="form-control form-control-solid" name="name" placeholder="Name" required/>
+                    </div>
+
+                    <div class="mb-10 fv-row">
+                        <label for="code" class="required form-label">code</label>
+                        <input type="text" class="form-control form-control-solid" name="code" placeholder="code" required/>
                     </div>
                     
                 </div>

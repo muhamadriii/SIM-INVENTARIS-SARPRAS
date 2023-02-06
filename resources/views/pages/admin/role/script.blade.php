@@ -23,7 +23,7 @@
                                 title: 'Success',
                                 text: response.message
                             })
-
+                            
                             $('.dataTable').DataTable().ajax.reload()
                             $('#role-modal').modal('hide')
                         }

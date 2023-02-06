@@ -62,8 +62,20 @@ class MenuSeeder extends Seeder
             ]);
             Menu::Create([
                 'id' => Str::uuid()->toString(),
-                'name' => 'Categories',
+                'name' => 'Kategory',
                 'route' => 'admin.categories.index',
+                'parent_id' => $master->id,
+            ]);
+            Menu::Create([
+                'id' => Str::uuid()->toString(),
+                'name' => 'Barang',
+                'route' => 'admin.items.index',
+                'parent_id' => $master->id,
+            ]);
+            Menu::Create([
+                'id' => Str::uuid()->toString(),
+                'name' => 'Unit',
+                'route' => 'admin.unit.index',
                 'parent_id' => $master->id,
             ]);
 

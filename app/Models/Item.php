@@ -14,7 +14,9 @@ class Item extends Model
     protected $fillable = [
         'parent_id',
         'sku',
-        'qr_code',
+        'color',
+        'count_print',
+        'status',
         'created_by',
         'updated_by',
     ];

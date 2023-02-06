@@ -97,14 +97,14 @@
         })
 
         function setForm(data) {
-            $('#type').val(data.type).change()
+            $('#role').val(data.type).change()
             $('input[name=name]').val(data.name)
             $('input[name=email]').val(data.email)
             $('input[name=username]').val(data.username)
             $('input[name=phone]').val(data.phone)
             $('select[name=role]').val(data.type).change()
             $('#address').val(data.address)
-            $('.image-input-empty').attr('style', 'background-image: url({{ asset('storage/images') }}/' +
+            $('.image-input-empty').attr('style', 'background-image: url({{ asset('storage/images/user') }}/' +
                 encodeURIComponent(data.image) + ')')
         }
 

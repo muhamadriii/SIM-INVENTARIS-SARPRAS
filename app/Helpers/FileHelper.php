@@ -6,6 +6,9 @@ use Closure;
 use Image;
 use Intervention\Image\Constraint;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
+
 
 class FileHelper
 {
@@ -30,7 +33,6 @@ class FileHelper
         } else {
             $fileName = self::getFileName($file);
         }
-
         $img = self::makeImage($file);
         $img = self::resizeImage($img, $maxWidth);
         self::uploadImage($img, $fileName, $path);
@@ -93,7 +95,10 @@ class FileHelper
     protected static function uploadImage($img, $fileName, $path)
     {
         if (!is_array($path)) {
-            $img->save($path . "/". $fileName);
+            if ($a  = !file_exists($path)) {
+                File::makeDirectory($path, $mode = 0777, true, true);
+            }
+            $img->save($path .'/'. $fileName);
         }
     }
 }

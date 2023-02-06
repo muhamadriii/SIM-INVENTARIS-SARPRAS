@@ -64,7 +64,7 @@ class UserController extends Controller
             if($request->file('image')) {
                 $filename = $request->file('image')->getClientOriginalName();
                 Storage::putFileAs(
-                    'public/images',
+                    'public/images/user',
                     $request->file('image'),
                     $filename
                 );
@@ -134,7 +134,7 @@ class UserController extends Controller
             if($request->file('image')) {
                 $filename = $request->file('image')->getClientOriginalName();
                 Storage::putFileAs(
-                    'public/images',
+                    'public/images/user',
                     $request->file('image'),
                     $filename
                 );

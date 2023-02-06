@@ -54,6 +54,7 @@ class UnitsDataTable extends DataTable
     {
         return [
             Column::make('name'),
+            Column::make('code'),
             Column::make('created_at'),
             Column::make('updated_at'),
             Column::computed('action')

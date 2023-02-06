@@ -43,7 +43,7 @@ class UserSeeder extends Seeder
             }
             $roles = [
                 'superadmin',
-                'merchant'
+                'petugas'
             ];
             foreach ($roles as $role) {
                 Role::create(['name' => $role]);
@@ -52,20 +52,20 @@ class UserSeeder extends Seeder
             $role_superadmin->givePermissionTo($permissions);
             $user = User::create([
                 'name' => 'Super Admin',
-                'username' => 'superadmin@robust.web.id',
-                'email' => 'superadmin@robust.web.id',
+                'username' => 'superadmin@sarpras.web.id',
+                'email' => 'superadmin@sarpras.web.id',
                 'phone_number' => '+6287777284665',
                 'type' => 'superadmin',
                 'password' => Hash::make('superadmin123'),
             ]);
             $user->assignRole('superadmin');
             User::create([
-                'name' => 'Merchant',
-                'username' => 'merchant@robust.web.id',
-                'email' => 'merchant@robust.web.id',
+                'name' => 'Petugas',
+                'username' => 'petugas@sarpras.web.id',
+                'email' => 'petugas@sarpras.web.id',
                 'phone_number' => '+6287777284664',
-                'type' => 'merchant',
-                'password' => Hash::make('merchant123'),
+                'type' => 'petugas',
+                'password' => Hash::make('petugas123'),
             ]);
             DB::commit();
         } catch (\Exception $ex) {

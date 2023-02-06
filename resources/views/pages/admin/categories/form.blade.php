@@ -16,7 +16,7 @@
 
                 <div class="modal-body">
 
-                    <div class="mb-10 fv-row">
+                    {{-- <div class="mb-10 fv-row">
                         <div class="image-input image-input-outline image-input-empty" data-kt-image-input="true" style="background-image: url('{{ asset('assets/media/avatars/blank.png') }}')">
                             <!-- <div class="image-input image-input-empty image-input-outline image-input-placeholder mb-3" data-kt-image-input="true"> -->
                                 <!--begin::Preview existing image-->
@@ -41,7 +41,12 @@
                                 </span>
                                 <!--end::Remove-->
                             </div>
-                        </div>
+                        </div> --}}
+
+                    <div class="mb-10 fv-row">
+                        <label for="code" class="required form-label">code</label>
+                        <input type="text" class="form-control form-control-solid" name="code" placeholder="code" required/>
+                    </div>
 
                     <div class="mb-10 fv-row">
                         <label for="name" class="required form-label">Name</label>
