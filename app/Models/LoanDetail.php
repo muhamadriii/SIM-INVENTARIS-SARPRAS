@@ -14,7 +14,6 @@ class LoanDetail extends Model
     protected $fillable = [
         'loan_id',
         'sku_item',
-        'qty',
         'return_date',
         'status',
         'created_by',

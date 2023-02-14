@@ -8,13 +8,14 @@ use App\Models\Unit;
 use App\Models\Category;
 use App\Http\Controllers\Controller;
 use App\DataTables\ParentItemDataTable;
+use App\DataTables\ItemDataTable;
 use App\Http\Requests\ParentItemRequest;
 use App\Http\Requests\ItemRequest;
 use Illuminate\Http\Request;
 use App\Helpers\FileHelper;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
-use SimpleSoftwareIO\QrCode\Facades\QrCode;
+use SimpleSoftwareIO\QrCode\Facades\QrCode; 
 use Illuminate\Support\Str;
 use View;
 
@@ -153,6 +154,7 @@ class ParentItemController extends Controller
     public function GenerateQrcode(ItemRequest $request, $id) {
         try {
             $parent = $this->model->with('unit','category')->find($id);
+            // $parent->
             $category = $parent->category->code;
             $unit = $parent->unit->code;
             $color = substr($request->color, 0, 3);
@@ -165,12 +167,12 @@ class ParentItemController extends Controller
             }else {
                 $sku = strtoupper($request->sku);
             }
-            $qrcode = QrCode::style('square')->size(150)->generate($sku, '../public/storage/images/item/'.$sku.'.svg');
+            $qrcode = QrCode::style('square')->size(400)->generate($sku, '../public/storage/images/item/'.$sku.'.svg');
             $urlQrcode = url('storage/images/item').'/'.$sku.'.svg';
             $data = Item::create([
                 'parent_id' => $id ,
                 'sku' => $sku ,
-                'color' => $color ,
+                'color' => $request->color,
                 'status' => $request->status ,
                 'count_print' => 0 ,
                 'created_by' => $auth ,
@@ -181,7 +183,7 @@ class ParentItemController extends Controller
                 'success' => true,
                 'message' => 'Success Generate SKU & QR-Code',
                 'data' => $data,
-                'url' => $urlQrcode,
+            'url' => $urlQrcode,
             ];
 
             return response()->json($response);
@@ -194,6 +196,36 @@ class ParentItemController extends Controller
             ];
             return response()->json($response, 500);
         }
-        
     }
+
+    public function ShowItem(ItemDatatable $dataTable, $id){
+        $data = $this->model->find($id);
+        $this->title = 'Data SKU '.$data->name;
+        View::share('title', $this->title);
+        View::share('breadcrumbs', [
+            [$this->title, route($this->route.'.index')]
+        ]);
+
+        return $dataTable->render("pages.".$this->path.".".$this->view.'.show');
+    }
+
+    public function Item($id){
+        try {
+            $data = Item::where('sku', $id)->with('parent','parent.category','parent.unit')->first();
+            $response = [
+                'success' => true,
+                'message' => 'Success retrieve data',
+                'data' => $data
+            ];
+            return response()->json($response);
+        } catch (\Exception $e) {
+            $response = [
+                'success' => false,
+                'message' => 'Server Error',
+                'data' => $e->getMessage()
+            ];
+            return response()->json($response, 500);
+        }
+    }   
+
 }

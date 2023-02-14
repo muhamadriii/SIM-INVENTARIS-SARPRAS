@@ -2,7 +2,7 @@
 
 namespace App\DataTables;
 
-use App\Models\ParentItem;
+use App\Models\Item;
 use App\Models\Category;
 use App\Models\Unit;
 use App\Models\User;
@@ -14,7 +14,7 @@ use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
 use View;
 
-class ParentItemDataTable extends DataTable
+class ItemDataTable extends DataTable
 {
     protected $model;
     protected $view;
@@ -22,29 +22,29 @@ class ParentItemDataTable extends DataTable
     public function __construct(){
         $this->view     = "item";
         $this->path     = "admin";
-
-        View::share('categories', Category::all());
-        View::share('units', Unit::all());
-
     }
 
     public function dataTable($query)
     {
         return datatables()
             ->eloquent($query)
-            ->addColumn('image', function($query) { return '<a src="'. asset('storage/images/item'). '/'. $query->image .'" class="img-fluid rounded image-modal" style="cursor:pointer">lihat foto</a>';})
+            ->addColumn('image', function($query) { return '<p>rgrsbg</p>';})
+            // ->addColumn('qr_code', function($query) { return '
+            //     <div class="" style="width:50px; max-height:50px; cursor:pointer;">
+            //         <img src="'. asset('storage/images/item'). '/'. $query->sku .'.svg'.'" class="img-fluid rounded image-modal" /> 
+            //     </div>
+            //     ';})
             ->addColumn('action', "pages.".$this->path.".".$this->view.'.action')
             ->editColumn('created_at', Carbon::parse($this->created_at)->format('Y-m-d H:i'))
             ->editColumn('updated_at', Carbon::parse($this->created_at)->format('Y-m-d H:i'))
-            ->rawColumns(['image', 'action']);
-
+            ->rawColumns(['action']);
     }
 
-    public function query(ParentItem $model)
+    public function query(Item $model)
     {
-        return $model->select('categories.name as category_name', 'units.name as unit_name', 'parent_items.*')
-                    ->join('categories', 'categories.id', '=', 'parent_items.category_id')
-                    ->join('units', 'units.id', '=', 'parent_items.unit_id')
+        return $model->select('parent_items.name as nama_barang',  'items.*')
+                    ->join('parent_items', 'parent_items.id', '=', 'items.parent_id')
+                    // ->join('categories', 'categories.id', '=', 'parent_items.category_id')
                     // ->with('unit')
                     ->orderBy('created_at', 'desc')
                     ->newQuery();
@@ -66,14 +66,11 @@ class ParentItemDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            Column::make('category_name'),
-            Column::make('unit_name'),
-            Column::make('name'),
-            Column::make('suplier'),
-            Column::make('description'),
-            Column::make('stock'),
-            Column::make('price'),
+            Column::make('nama_barang'),
+            Column::make('color'),
+            Column::make('sku'),
             Column::make('image'),
+            // Column::make('qr_code'),
             Column::computed('action')
                 ->exportable(false)
                 ->printable(false)

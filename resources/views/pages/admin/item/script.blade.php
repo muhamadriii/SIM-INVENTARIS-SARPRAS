@@ -137,7 +137,8 @@
                     $('#generate-item-modal').modal('show')
                 })
             })
-            
+
+            // ajax generate sku
             $(document).on('submit', '#generate-item-form', function(e) {
                 e.preventDefault()
                 const payload = new FormData(this)
@@ -175,6 +176,7 @@
                             `)
                             $('.generate-qrcode-btn').removeClass('btn-primary').addClass(['btn-secondary', 'dishable'])
                             $('.generate-qrcode-btn').attr('type','button')
+                            $('.button-action').children('.reset-btn').remove()
                             $('.button-action').prepend(`
                                 <button type="reset" class="btn reset-btn btn-outline-danger">Cetak Lagi</button>
                             `)
@@ -190,9 +192,20 @@
                 }
             })
 
+            $('.modal').on('hidden.bs.modal', function(event) {
+                $('.result').children().remove()
+                $('.generate-qrcode-btn').removeClass(['btn-secondary', 'dishable']).addClass('btn-primary')
+                $('.generate-qrcode-btn').attr('type','submit')
+                $('.button-action').children('.reset-btn').remove()
+            })
+
             $(document).on('click', '.reset-btn', function() {
-                $('.generate-qrcode-btn').removeClass('btn-primary').addClass(['btn-secondary', 'dishable'])
-                
+                $('.generate-qrcode-btn').removeClass(['btn-secondary', 'dishable']).addClass('btn-primary')
+                $('.generate-qrcode-btn').attr('type','submit')
+                $('.result').children().remove()
+                $('.input-sku').children().remove()
+                $('.button-action').children('.reset-btn').remove()
+                $(this).remove()
             })
             
             // add input sku
@@ -205,7 +218,6 @@
                 } else {
                     $('.input-sku').children().remove()
                 }
-                
             })
 
         })

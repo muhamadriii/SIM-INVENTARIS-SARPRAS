@@ -98,7 +98,6 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
                     <div class="button-action">
-                        {{-- <button type="button" class="btn btn-outline-danger">Cetak Lagi</button> --}}
                         <button type="button" class="btn btn-warning">Print</button>
                     </div>
                 </div>

@@ -112,8 +112,7 @@
 
                     <div class="mb-10 fv-row">
                         <label for="description" class="required form-label">Description</label>
-                        <input type="text" class="form-control form-control-solid" name="description"
-                            placeholder="Description" required />
+                        <input type="text" class="form-control form-control-solid" name="description" placeholder="Description" required />
                     </div>
                     
                 </div>

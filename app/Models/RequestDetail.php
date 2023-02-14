@@ -14,7 +14,6 @@ class RequestDetail extends Model
     protected $fillable = [
         'request_id',
         'sku_item',
-        'qty',
         'created_by',
         'updated_by',
     ];

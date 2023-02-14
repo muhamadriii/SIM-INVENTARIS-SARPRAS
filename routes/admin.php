@@ -9,6 +9,8 @@ use App\Http\Controllers\Admin\MenuController;;
 use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\UnitController;
+use App\Http\Controllers\Admin\LoanController;
+use App\Http\Controllers\Admin\RequestController;
 use App\Http\Controllers\Admin\ParentItemController;
 use Illuminate\Support\Facades\Route;
 
@@ -53,6 +55,11 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::post('items/{id}', [ParentItemController::class, 'update'])->name('admin.items.update');
         Route::resource('items', ParentItemController::class, ['except'=>['update']]);
         Route::post('generate-items/{id}', [ParentItemController::class, 'generateQrcode'])->name('generate-items.create');
+        Route::get('show-items/{id}', [ParentItemController::class, 'ShowItem'])->name('children-items.show');
+        Route::get('sku-items/{id}', [ParentItemController::class, 'Item'])->name('sku-items.show');
         
+        Route::resource('requests', RequestController::class);
+        Route::resource('loans', LoanController::class);
+
     });
 });

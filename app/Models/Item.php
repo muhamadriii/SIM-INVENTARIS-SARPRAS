@@ -20,4 +20,9 @@ class Item extends Model
         'created_by',
         'updated_by',
     ];
+
+    public function parent()
+    {
+        return $this->belongsTo(ParentItem::class, 'parent_id', 'id');
+    }
 }
